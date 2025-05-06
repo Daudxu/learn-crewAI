@@ -4,65 +4,65 @@ import warnings
 
 from datetime import datetime
 
-from hello_world.crew import HelloWorld
+from testing_crew.crew import TestingCrew
 
 warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
 
-# 此主文件旨在为您提供在本地运行团队的方式，
-# 因此请避免在此文件中添加不必要的逻辑。
-# 替换为您想要测试的输入，它将自动
-# 插入任何任务和智能体信息
+# This main file is intended to be a way for you to run your
+# crew locally, so refrain from adding unnecessary logic into this file.
+# Replace with inputs you want to test with, it will automatically
+# interpolate any tasks and agents information
 
 def run():
     """
-    运行团队。
+    Run the crew.
     """
     inputs = {
-        'topic': '人工智能大语言模型',  # 将主题改为中文
+        'topic': 'AI LLMs',
         'current_year': str(datetime.now().year)
     }
     
     try:
-        HelloWorld().crew().kickoff(inputs=inputs)
+        TestingCrew().crew().kickoff(inputs=inputs)
     except Exception as e:
         raise Exception(f"An error occurred while running the crew: {e}")
 
 
 def train():
     """
-    为给定的迭代次数训练团队。
+    Train the crew for a given number of iterations.
     """
     inputs = {
-        "topic": "人工智能大语言模型",  # 将主题改为中文
+        "topic": "AI LLMs",
         'current_year': str(datetime.now().year)
     }
     try:
-        HelloWorld().crew().train(n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=inputs)
+        TestingCrew().crew().train(n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=inputs)
 
     except Exception as e:
         raise Exception(f"An error occurred while training the crew: {e}")
 
 def replay():
     """
-    从特定任务重放团队执行过程。
+    Replay the crew execution from a specific task.
     """
     try:
-        HelloWorld().crew().replay(task_id=sys.argv[1])
+        TestingCrew().crew().replay(task_id=sys.argv[1])
 
     except Exception as e:
         raise Exception(f"An error occurred while replaying the crew: {e}")
 
 def test():
     """
-    测试团队执行并返回结果。
+    Test the crew execution and returns the results.
     """
     inputs = {
-        "topic": "人工智能大语言模型",  # 将主题改为中文
+        "topic": "AI LLMs",
         "current_year": str(datetime.now().year)
     }
     
     try:
-        HelloWorld().crew().test(n_iterations=int(sys.argv[1]), eval_llm=sys.argv[2], inputs=inputs)
+        TestingCrew().crew().test(n_iterations=int(sys.argv[1]), eval_llm=sys.argv[2], inputs=inputs)
 
     except Exception as e:
         raise Exception(f"An error occurred while testing the crew: {e}")
