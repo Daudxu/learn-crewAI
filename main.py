@@ -1,12 +1,14 @@
-from crewai import Agent, Task, Crew, Process
-from langchain_openai import ChatOpenAI
+from crewai import Agent, Task, Crew, Process, LLM
+# from langchain_openai import ChatOpenAI
 import os
 
 # 如果需要设置API密钥，取消下面的注释
 # os.environ["OPENAI_API_KEY"] = "你的OpenAI API密钥"
 
 # 选择语言模型，如果有API密钥，可以使用OpenAI，否则可以使用本地模型
-llm = ChatOpenAI(temperature=0.7)  # 默认是gpt-3.5-turbo
+llm = LLM(
+    
+)
 
 # 定义代理（Agents）
 researcher = Agent(
